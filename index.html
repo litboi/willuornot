@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Choose your truth 👀</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: pink;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#yesBtn, #noBtn {
+  position: absolute;
+}
+
+#yesBtn {
+  background: #ff4d6d;
+  color: white;
+  top: 40%;
+  left: 30%;
+}
+
+#noBtn {
+  background: #555;
+  color: white;
+  top: 40%;
+  left: 60%;
+}
+
+#realBtn {
+  background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+  color: white;
+  font-size: 26px;
+  padding: 20px 50px;
+  font-weight: bold;
+  margin-top: 150px; /* so it’s below Yes/No */
+}
+
+#message {
+  display: none;
+  font-size: 2rem;
+  margin-top: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Choose your truth 😌</h1>
+
+<button id="yesBtn">Yes 💖</button>
+<button id="noBtn">No 😢</button>
+<button id="realBtn" onclick="realAnswer()">I'M GAY 🏳️‍🌈</button>
+
+<div id="message">😂😂 BESTIE CONFIRMED 😂😂</div>
+
+<script>
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+
+function moveButton(button) {
+  const x = Math.random() * (window.innerWidth - 150);
+  const y = Math.random() * (window.innerHeight - 70);
+  button.style.left = x + "px";
+  button.style.top = y + "px";
+}
+
+// Move on hover (laptop)
+yesBtn.addEventListener("mouseenter", () => moveButton(yesBtn));
+noBtn.addEventListener("mouseenter", () => moveButton(noBtn));
+
+// Move on touch (phone)
+yesBtn.addEventListener("touchstart", (e) => {
+  e.preventDefault();
+  moveButton(yesBtn);
+});
+
+noBtn.addEventListener("touchstart", (e) => {
+  e.preventDefault();
+  moveButton(noBtn);
+});
+
+function realAnswer() {
+  document.getElementById("message").style.display = "block";
+  document.body.style.background = "lightgreen";
+}
+</script>
+
+</body>
+</html>
